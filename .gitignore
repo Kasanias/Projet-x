@@ -1,2 +1,8 @@
 dist/
 node_modules/
+.DS_Store
+.babelrc
+.editorconfig
+.postcssrc.js
+.vscode/
+src/.DS_Store
