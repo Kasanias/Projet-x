@@ -5,6 +5,7 @@
       class="home-container"
       :style="{ backgroundImage: `url('${require('@/assets/movies-background.jpg')}')` }"
     >
+
     <!-- Ce qui ira SUR l'image -->
 
   </div>
