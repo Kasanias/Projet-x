@@ -4,7 +4,7 @@
       class="home-container"
       :style="{ backgroundImage: `url('${require('@/assets/movies-background.jpg')}')` }"
     ></div>
-    salut
+    
   </div>
 </template>
 
