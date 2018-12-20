@@ -101,7 +101,7 @@ span {
 }
 
 div.scrollmenu {
-  overflow: auto;
+  overflow: hidden;
   white-space: nowrap;
   margin-top: 20px;
 }
