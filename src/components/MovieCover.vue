@@ -126,7 +126,10 @@ li {
 }
 
 .cover-container:hover img {
-  opacity: 0.2;
+  opacity: 0.5;
+  /* grow */
+  transform: scale(1.3);
+  z-index: 10;
 }
 .cover-container:hover .title {
   opacity: 1;
@@ -154,5 +157,8 @@ img {
   height: auto;
   transition: 0.5s ease;
   backface-visibility: hidden;
+  /* grow */
+  transition: transform .2s; /* Animation */
+
 }
 </style>
