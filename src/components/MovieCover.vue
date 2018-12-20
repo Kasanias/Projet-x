@@ -126,9 +126,8 @@ li {
 }
 
 .cover-container:hover img {
-  opacity: 0.5;
   /* grow */
-  transform: scale(1.3);
+  transform: scale(1.2);
   z-index: 10;
 }
 .cover-container:hover .title {
