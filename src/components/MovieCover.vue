@@ -148,9 +148,9 @@ li {
 }
 
 img {
-  width: 100%;
+  width: 140px;
+  height: 209px !important;
   display: block;
-  width: 100%;
   height: auto;
   transition: 0.5s ease;
   backface-visibility: hidden;
