@@ -55,7 +55,9 @@ export default {
     this.$jsonp(host + this.request.url, this.request.query)
       .then(res => {
         res.results.forEach(element => {
-          this.movie_list.push(element);
+          if (element.poster_path !== null) {
+            this.movie_list.push(element);
+          }
         });
       })
       .catch(err => {
