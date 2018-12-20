@@ -17,46 +17,8 @@
 <script>
 import MovieList from "../components/MovieList.vue";
 import store from "../store";
-
-/**
- * Avant de commencer, on récupère les dates au bon format pour les sorties de la semaine
- * Ca peut se faire de maniere plus propre dans un scrip js par exemple et l'importer ici
- */
-
-var timestamp = new Date().getTime();
-var date_not_formatted = new Date(timestamp);
-var date_today = date_not_formatted.getFullYear() + "-";
-if (date_not_formatted.getMonth() < 9) {
-  date_today += "0";
-}
-date_today += date_not_formatted.getMonth() + 1;
-date_today += "-";
-if (date_not_formatted.getDate() < 10) {
-  date_today += "0";
-}
-date_today += date_not_formatted.getDate();
-
-var today = new Date();
-var lastWeek = new Date(
-  today.getFullYear(),
-  today.getMonth(),
-  today.getDate() - 7
-);
-
-var date_not_formatted = new Date(lastWeek);
-var date_lastweek = date_not_formatted.getFullYear() + "-";
-if (date_not_formatted.getMonth() < 9) {
-  date_lastweek += "0";
-}
-date_lastweek += date_not_formatted.getMonth() + 1;
-date_lastweek += "-";
-if (date_not_formatted.getDate() < 10) {
-  date_lastweek += "0";
-}
-date_lastweek += date_not_formatted.getDate();
-
-console.log(date_lastweek)
-console.log(date_today);
+import {date_lastweek} from "../tools/WeeklyReleases.js"
+import {date_today} from "../tools/WeeklyReleases.js"
 
 export default {
   data() {
