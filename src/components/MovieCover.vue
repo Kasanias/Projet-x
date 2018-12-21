@@ -1,7 +1,7 @@
 
 <template>
   <div class="cover-container">
-    <img :src="'https://image.tmdb.org/t/p/w300' + this.movie.poster_path">
+    <img :src="'https://image.tmdb.org/t/p/w300' + this.movie.poster_path" @click="test">
     <div class="title">{{this.title}}</div>
     <!-- <div class="year">{{this.release_year}}</div>
     <div class="title">{{this.title}}</div>
@@ -35,6 +35,9 @@ export default {
           id: this.movie.id
         }
       });
+    },
+    test() {
+      console.log("mdr");
     }
   },
   /**
