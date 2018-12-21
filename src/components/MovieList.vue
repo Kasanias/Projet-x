@@ -1,16 +1,16 @@
 <template>
   <div class="scrollmenu" :id="request.class">
-    <div class="titre">
-      <span>
-        {{request.title}}
-        <i class="fas fa-chevron-right"></i>
-      </span>
-      <i @click="prev" class="fas fa-chevron-left prev"></i>
-      <i @click="next" class="fas fa-chevron-right next"></i>
-    </div>
-    <a v-for="(item,n) in movie_list" :key="n">
-      <movie-cover :movie="item"/>
-    </a>
+      <div class="titre">
+        <span>
+          {{request.title}}
+          <i class="fas fa-chevron-right"></i>
+        </span>
+        <i @click="prev" class="fas fa-chevron-left prev"></i>
+        <i @click="next" class="fas fa-chevron-right next"></i>
+      </div>
+      <a v-for="(item,n) in movie_list" :key="n">
+        <movie-cover :movie="item"/>
+      </a>
   </div>
 </template>
 
@@ -102,8 +102,15 @@ span {
   justify-content: center;
 }
 
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 div.scrollmenu {
-  overflow: hidden;
+  overflow: scroll;
+  overflow-y: hidden;
+
   white-space: nowrap;
   margin-top: 20px;
 }
@@ -115,4 +122,5 @@ div.scrollmenu a {
   padding: 14px;
   text-decoration: none;
 }
+
 </style>
