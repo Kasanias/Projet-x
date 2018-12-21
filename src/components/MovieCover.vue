@@ -2,6 +2,7 @@
 <template>
   <div class="cover-container">
     <img :src="'https://image.tmdb.org/t/p/w300' + this.movie.poster_path">
+    <div class="title">{{this.title}}</div>
     <!-- <div class="year">{{this.release_year}}</div>
     <div class="title">{{this.title}}</div>
     <div class="genre">
@@ -160,4 +161,8 @@ img {
   transition: transform .2s; /* Animation */
 
 }
+
+title {
+  visibility: hidden;
+} 
 </style>
