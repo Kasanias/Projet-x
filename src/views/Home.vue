@@ -4,6 +4,11 @@
       class="home-container"
       :style="{ backgroundImage: `url('${require('@/assets/movies-background.jpg')}')` }"
     >
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">Projet-X</p>
+        <footer class="blockquote-footer">Qui considère l'étrange admet l'impossible</footer>
+      </blockquote>
+
       <!-- Ce qui ira SUR l'image -->
     </div>
     <!--  Ce qui ira SOUS l'image -->
@@ -17,8 +22,8 @@
 <script>
 import MovieList from "../components/MovieList.vue";
 import store from "../store";
-import {date_lastweek} from "../tools/WeeklyReleases.js"
-import {date_today} from "../tools/WeeklyReleases.js"
+import { date_lastweek } from "../tools/WeeklyReleases.js";
+import { date_today } from "../tools/WeeklyReleases.js";
 
 export default {
   data() {
@@ -79,6 +84,15 @@ html {
   background-size: cover;
   z-index: 0;
   position: relative;
+}
+
+
+.mb-0 {
+  font-size: 8vw;
+  padding-top: 40vh;
+}
+.blockquote-footer {
+  font-size: 5vw;
 }
 
 .btn {
