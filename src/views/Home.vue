@@ -4,6 +4,12 @@
       class="home-container"
       :style="{ backgroundImage: `url('${require('@/assets/movies-background.jpg')}')` }"
     >
+      <div class="btn-header">
+        <button type="button" class="btn btn-outline-light">Films</button>
+        <button type="button" class="btn btn-outline-light">Acteurs</button>
+        <button type="button" class="btn btn-outline-light">Autres</button>
+      </div>
+
       <blockquote class="blockquote text-center">
         <p class="mb-0">Projet-X</p>
         <footer class="blockquote-footer">Qui considère l'étrange admet l'impossible</footer>
@@ -86,10 +92,15 @@ html {
   position: relative;
 }
 
+.btn-header {
+  position: absolute;
+  top : 10px;
+  right: 10px;
+}
 
 .mb-0 {
   font-size: 8vw;
-  padding-top: 40vh;
+  padding-top: 25vh;
 }
 .blockquote-footer {
   font-size: 5vw;
