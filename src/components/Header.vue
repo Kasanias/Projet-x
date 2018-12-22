@@ -109,6 +109,6 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color: white;
+  color: red;
 }
 </style>

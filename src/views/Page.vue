@@ -1,16 +1,13 @@
 <template>
   <div>
     <h1>{{this.title}}</h1>
-    <div class="flex-container" v-for="(item,n) in result_list" :key="n">
-      <movie-cover :movie="item"/>
+    <div class="flex-container">
+      <movie-cover class="cover-page" :movie="item"  v-for="(item,n) in result_list" :key="n"/>
     </div>
-    <!-- <v-icon
+    <i class="fas fa-arrow-down next_icon"
       v-if="this.result_list.length > 0"
-      x-large
-      class="next_icon"
       @click="next_page"
-      color="primary"
-    >arrow_downward</v-icon>-->
+    />
   </div>
 </template>
 
@@ -96,19 +93,30 @@ export default {
 
 
 <style>
+
+html,body {
+    height: 100%;
+    width: 100%;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: wrap;
 }
 
+.cover-page {
+    margin : 15px;
+}
+
 .flexitem {
   display: flex;
   justify-content: center;
-  margin-left: auto;
 }
 
 .next_icon {
-  position: relative;
-  left: 50%;
+    color : red;
+    font-size: 30px;
 }
+
+
 </style>
