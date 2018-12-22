@@ -1,42 +1,23 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="#">Container</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExample07">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown07">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-md-0">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-          </form>
-        </div>
+  <div>
+    <div class="d-flex justify-content-center">
+      <div class="searchbar">
+        <input class="search_input" type="text" name placeholder="Search...">
+        <a href="#" class="search_icon">
+          <i class="fas fa-search"></i>
+        </a>
       </div>
-    </nav>
+    </div>
+    <div class="btn-header">
+      <button type="button" class="btn btn-outline-light">Films</button>
+      <button type="button" class="btn btn-outline-light">Acteurs</button>
+      <button type="button" class="btn btn-outline-light">Autres</button>
+    </div>
+  </div>
 </template>
 
 
 <script>
-
 import store from "../store/";
 import router from "../router/";
 // import debounce from "debounce";
@@ -44,11 +25,54 @@ import router from "../router/";
 import JQuery from "jquery";
 let $ = JQuery;
 
-export default {
-    
-}
+export default {};
 </script>
 
 <style>
+.searchbar {
+  position: absolute;
+  left : 10px;
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 60px;
+  background-color: #353b48;
+  border-radius: 30px;
+  padding: 10px;
+  z-index: 3;
+}
 
+.search_input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color: transparent;
+  line-height: 40px;
+  transition: width 0.4s linear;
+  z-index: 3;
+}
+
+.searchbar:hover > .search_input {
+  padding: 0 10px;
+  width: 200px;
+  caret-color: red;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon {
+  background: white;
+  color: #e74c3c;
+}
+
+.search_icon {
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+}
 </style>
