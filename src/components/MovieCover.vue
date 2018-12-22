@@ -1,8 +1,7 @@
 
 <template>
   <div class="cover-container">
-    <img :src="'https://image.tmdb.org/t/p/w300' + this.movie.poster_path" @click="test">
-    <div class="title">{{this.title}}</div>
+    <img :src="'https://image.tmdb.org/t/p/w300' + this.movie.poster_path" @click="toMovie">
     <!-- <div class="year">{{this.release_year}}</div>
     <div class="title">{{this.title}}</div>
     <div class="genre">
@@ -28,16 +27,12 @@ export default {
   },
   methods: {
     toMovie() {
-      console.log(typeof this.movie.id);
       router.push({
-        name: "Movie",
+        name: "MovieDesc",
         params: {
-          id: this.movie.id
+          id: this.movie.id.toString(),
         }
       });
-    },
-    test() {
-      console.log("mdr");
     }
   },
   /**

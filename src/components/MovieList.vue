@@ -49,7 +49,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.request);
     let host = store.state.api_host;
 
     this.$jsonp(host + this.request.url, this.request.query)
