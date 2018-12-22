@@ -2,8 +2,15 @@
   <div>
     <div class="d-flex justify-content-center">
       <div class="searchbar">
-        <input class="search_input" type="text" name placeholder="Search...">
-        <a href="#" class="search_icon">
+        <input
+          class="search_input"
+          type="text"
+          v-model="search_text"
+          v-on:keyup.enter="search"
+          name
+          placeholder="Search..."
+        >
+        <a @click="search" class="search_icon">
           <i class="fas fa-search"></i>
         </a>
       </div>
@@ -20,18 +27,47 @@
 <script>
 import store from "../store/";
 import router from "../router/";
-// import debounce from "debounce";
+import debounce from "debounce";
 
 import JQuery from "jquery";
 let $ = JQuery;
 
-export default {};
+export default {
+  data() {
+    return {
+      search_text: ""
+    };
+  },
+  watch: {
+    search_text() {
+      this.search();
+    }
+  },
+  created() {
+    this.search = debounce(this.search, 200);
+  },
+  methods: {
+    search() {
+      if (this.search_text != "") {
+        console.log("searching...");
+        router.push({
+          name: "Page",
+          params: {
+            query: this.search_text,
+            request_url: "search/movie",
+            title: "Résultats pour: " + this.search_text
+          }
+        });
+      }
+    }
+  }
+};
 </script>
 
 <style>
 .searchbar {
   position: absolute;
-  left : 10px;
+  left: 10px;
   margin-bottom: auto;
   margin-top: auto;
   height: 60px;
