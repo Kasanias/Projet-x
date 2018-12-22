@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <!-- <header>
-      <span>Vue.js PWA</span>
-    </header> -->
+    <!-- <Header/> -->
     <main>
       <router-view></router-view>
     </main>
@@ -10,8 +8,14 @@
 </template>
 
 <script>
+
+import Header from "./components/Header.vue"
+
 export default {
-  name: 'app'
+  name: 'app',
+  components : {
+    Header
+  }
 }
 </script>
 
