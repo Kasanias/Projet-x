@@ -2,12 +2,9 @@
   <div>
     <h1>{{this.title}}</h1>
     <div class="flex-container">
-      <movie-cover class="cover-page" :movie="item"  v-for="(item,n) in result_list" :key="n"/>
+      <movie-cover class="cover-page" :movie="item" v-for="(item,n) in result_list" :key="n"/>
     </div>
-    <i class="fas fa-arrow-down next_icon"
-      v-if="this.result_list.length > 0"
-      @click="next_page"
-    />
+    <i class="fas fa-arrow-down next_icon" v-if="this.result_list.length > 0" @click="next_page"/>
   </div>
 </template>
 
@@ -93,19 +90,20 @@ export default {
 
 
 <style>
-
-html,body {
-    height: 100%;
-    width: 100%;
+html,
+body {
+  height: 100%;
+  width: 100%;
 }
 
 .flex-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .cover-page {
-    margin : 15px;
+  margin: 15px;
 }
 
 .flexitem {
@@ -114,9 +112,7 @@ html,body {
 }
 
 .next_icon {
-    color : red;
-    font-size: 30px;
+  color: red;
+  font-size: 30px;
 }
-
-
 </style>
