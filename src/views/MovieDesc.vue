@@ -42,13 +42,13 @@
       <p class="details">
         <span class="detail-name">Réalisateur : </span>
         <span v-for="director in directors" :key="director" class="director">
-          <span>{{ director }} </span>
+          <span>{{ director }}</span>
         </span>
       </p>
       <p class="details">
         <span class="detail-name">Acteurs : </span>
         <span v-for="actor in cast" :key="actor" class="actor">
-          <span>{{ actor }} </span>
+          <span>{{ actor }}</span>
         </span>
       </p>
     </div>
@@ -184,10 +184,17 @@ html {
     font-style: italic;
     color: rgb(15, 124, 248);
 }
+.actor + .actor:before, .director + .director:before {
+  content: ", ";
+}
 .genre {
     font-size: 0.8em;
     font-style: italic;
+    font-weight: bold;
     color: red;
+}
+.genre + .genre:before {
+  content: "| ";
 }
 .title {
   margin-bottom: 2%;
@@ -195,7 +202,6 @@ html {
 .desc {
   text-align: justify;
 }
-
 </style>
 <style lang="scss">
 %flex-display {
