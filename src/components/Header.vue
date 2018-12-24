@@ -69,10 +69,10 @@ export default {
       });
     },
     updateScroll() {
-      if ($(".header-container").offset().top) {
-        $(".header-container").addClass("active");
+      if (!$(".header-container").offset().top) {
+        $('.header-container').css('background', 'transparent');
       } else {
-        $(".header-container").removeClass("active");
+        $('.header-container').css('background', '#141414');
       }
     }
   }
@@ -90,11 +90,14 @@ html {
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   background-color: transparent;
+  transition: background 1s linear;
+  -webkit-transition: background 1s linear;
+  -moz-transition: background 1s linear;
 }
 
-.active {
+/* .active {
   background-color: #141414;
-}
+} */
 
 .btn-header {
   position: absolute;
