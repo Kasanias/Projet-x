@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="header-container">
     <div class="d-flex justify-content-center">
       <div class="searchbar">
         <input
@@ -16,9 +16,9 @@
       </div>
     </div>
     <div class="btn-header">
+      <button type="button" @click="toHome" class="btn btn-outline-light">Accueil</button>
       <button type="button" class="btn btn-outline-light">Films</button>
       <button type="button" class="btn btn-outline-light">Acteurs</button>
-      <button type="button" class="btn btn-outline-light">Autres</button>
     </div>
   </div>
 </template>
@@ -59,12 +59,22 @@ export default {
           }
         });
       }
+    },
+    toHome() {
+        router.push({
+            name: "Home"
+        });
     }
   }
 };
 </script>
 
 <style>
+
+.header-container {
+    height: 65px;
+}
+
 .searchbar {
   position: absolute;
   left: 10px;
