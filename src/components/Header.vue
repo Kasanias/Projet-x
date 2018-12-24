@@ -61,22 +61,35 @@ export default {
       }
     },
     toHome() {
-        router.push({
-            name: "Home"
-        });
+      router.push({
+        name: "Home"
+      });
     }
   }
 };
 </script>
 
 <style>
-
+body,
+html {
+  height: 100%;
+}
 .header-container {
-    height: 65px;
+  height: 65px;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+.btn-header {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 .searchbar {
   position: absolute;
+  top: 10px;
   left: 10px;
   margin-bottom: auto;
   margin-top: auto;

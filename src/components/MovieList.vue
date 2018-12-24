@@ -1,22 +1,23 @@
 <template>
   <div class="scrollmenu" :id="request.class">
-      <div class="titre">
-        <span>
-          {{request.title}}
-          <i class="fas fa-chevron-right"></i>
-        </span>
-        <i @click="prev" class="fas fa-chevron-left prev"></i>
-        <i @click="next" class="fas fa-chevron-right next"></i>
-      </div>
-      <a v-for="(item,n) in movie_list" :key="n">
-        <movie-cover :movie="item"/>
-      </a>
+    <div class="titre">
+      <span @click="toPage">
+        {{request.title}}
+        <i class="fas fa-chevron-right"></i>
+      </span>
+      <i @click="prev" class="fas fa-chevron-left prev"></i>
+      <i @click="next" class="fas fa-chevron-right next"></i>
+    </div>
+    <a v-for="(item,n) in movie_list" :key="n">
+      <movie-cover :movie="item"/>
+    </a>
   </div>
 </template>
 
 
 <script>
 import store from "../store/";
+import router from "../router/"
 import MovieCover from "./MovieCover.vue";
 import JQuery from "jquery";
 let $ = JQuery;
@@ -39,6 +40,16 @@ export default {
     MovieCover
   },
   methods: {
+    toPage() {
+      router.push({
+        name: "Page",
+        params: {
+          query: "api_request",
+          request_url: this.request.url,
+          title: this.request.title
+        }
+      });
+    },
     prev() {
       let width = document.getElementById(this.request.class).offsetWidth;
       $("#" + this.request.class).animate({ scrollLeft: "-=" + width });
@@ -76,9 +87,10 @@ export default {
   color: white;
   font-size: 20px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   margin-left: 5px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 span {
@@ -102,8 +114,8 @@ span {
 }
 
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+  width: 0px; /* remove scrollbar space */
+  background: transparent; /* optional: just make scrollbar invisible */
 }
 
 div.scrollmenu {
@@ -121,5 +133,4 @@ div.scrollmenu a {
   padding: 14px;
   text-decoration: none;
 }
-
 </style>

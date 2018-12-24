@@ -40,8 +40,16 @@ export default {
       api_key: store.state.api_key,
       language: "fr-FR"
     };
+    /**
+     * Si api_request -> c'est une recherche dans la BDD
+     * Si ce n'est pas api_request -> c'est par exemple movie/upcoming, du coup on ajouter la region FR pour avoir
+     * des bonnes informations sur les films en France
+     */
     if (this.query != "api_request") {
       Object.assign(this.body, { query: this.query });
+    }
+    else {
+      Object.assign(this.body, { region: "FR" });
     }
     console.log(this.body);
     Object.assign(this.body, { page: 1 });
