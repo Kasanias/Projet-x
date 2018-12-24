@@ -46,6 +46,9 @@ export default {
   created() {
     this.search = debounce(this.search, 200);
   },
+  mounted() {
+    window.addEventListener("scroll", this.updateScroll);
+  },
   methods: {
     search() {
       if (this.search_text != "") {
@@ -64,6 +67,13 @@ export default {
       router.push({
         name: "Home"
       });
+    },
+    updateScroll() {
+      if ($(".header-container").offset().top) {
+        $(".header-container").addClass("active");
+      } else {
+        $(".header-container").removeClass("active");
+      }
     }
   }
 };
@@ -79,6 +89,11 @@ html {
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
+  background-color: transparent;
+}
+
+.active {
+  background-color: #141414;
 }
 
 .btn-header {
@@ -89,7 +104,7 @@ html {
 
 .searchbar {
   position: absolute;
-  top: 10px;
+  top: 2px;
   left: 10px;
   margin-bottom: auto;
   margin-top: auto;
