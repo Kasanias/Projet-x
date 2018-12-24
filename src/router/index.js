@@ -24,5 +24,9 @@ export default new Router({
             component : Page,
             props : true,
           },
+          {
+            path: "*",
+            redirect: "/"
+          }
     ]
 })
