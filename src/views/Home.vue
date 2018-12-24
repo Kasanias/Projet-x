@@ -103,6 +103,7 @@ html {
 }
 .blockquote-footer {
   font-size: 5vw;
+  color: rgb(182, 5, 5);
 }
 
 .btn {

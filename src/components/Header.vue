@@ -8,7 +8,7 @@
           v-model="search_text"
           v-on:keyup.enter="search"
           name
-          placeholder="Search..."
+          placeholder="Rechercher..."
         >
         <a @click="search" class="search_icon">
           <i class="fas fa-search"></i>
