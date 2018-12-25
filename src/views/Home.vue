@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="home-page-container">
     <div
       class="home-container"
       :style="{ backgroundImage: `url('${require('@/assets/movies-background.jpg')}')` }"
     >
-
       <blockquote class="blockquote text-center">
         <p class="mb-0">Projet-X</p>
         <footer class="blockquote-footer">Qui considère l'étrange admet l'impossible</footer>
@@ -13,9 +12,11 @@
       <!-- Ce qui ira SUR l'image -->
     </div>
     <!--  Ce qui ira SOUS l'image -->
-    <movie-list :request="this.requestUpcoming"></movie-list>
-    <movie-list :request="this.requestNow"></movie-list>
-    <movie-list :request="this.requestThisWeek"></movie-list>
+    <div class="movie-lists">
+      <movie-list :request="this.requestUpcoming"></movie-list>
+      <movie-list :request="this.requestNow"></movie-list>
+      <movie-list :request="this.requestThisWeek"></movie-list>
+    </div>
   </div>
 </template>
 
@@ -25,6 +26,8 @@ import MovieList from "../components/MovieList.vue";
 import store from "../store";
 import { date_lastweek } from "../tools/WeeklyReleases.js";
 import { date_today } from "../tools/WeeklyReleases.js";
+import JQuery from "jquery";
+let $ = JQuery;
 
 export default {
   data() {
@@ -65,6 +68,43 @@ export default {
   },
   components: {
     MovieList
+  },
+  methods: {
+    handleScroll() {
+      // console.log("Scrolling");
+      // /**
+      //  * Il faut sauter l'image peut importe où on est sur l'image
+      //  * si on est au top de lécran, on saute 100vh, si à la moitié on saute 50vh
+      //  */
+      // let home_height = $(".home-container").height();
+      // let page_position = $(window).scrollTop();
+      // if (page_position <= home_height) {
+      //   // on est toujours sur l'image
+      //   console.log(home_height, page_position);
+      //   let toScroll = home_height - page_position;
+      //   $([document.documentElement, document.body]).animate(
+      //     {
+      //       scrollTop: $(".movie-lists").offset().top
+      //     },
+      //     1000
+      //   );
+      // }
+      // else
+      // {
+      //   $([document.documentElement, document.body]).animate(
+      //     {
+      //       scrollTop: $(".home-container").offset().top
+      //     },
+      //     1000
+      //   );
+      // }
+    }
+  },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>
@@ -74,7 +114,7 @@ export default {
 body,
 html {
   height: 100%;
-  margin : 0;
+  margin: 0;
   padding: 0;
 }
 
@@ -109,5 +149,4 @@ html {
 .btn {
   z-index: 1;
 }
-
 </style>
