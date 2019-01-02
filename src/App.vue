@@ -1,27 +1,26 @@
 <template>
   <div id="app">
     <main>
+      <Header class="header"/>
       <router-view :key="$route.fullPath"></router-view>
-          <Header/>
-
+      
     </main>
   </div>
 </template>
 
 <script>
-
-import Header from "./components/Header.vue"
+import Header from "./components/Header.vue";
 
 export default {
-  name: 'app',
-  components : {
+  name: "app",
+  components: {
     Header
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 </style>
 
 <style>
@@ -30,7 +29,7 @@ body {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
@@ -42,11 +41,15 @@ main {
   margin-top: 0px;
 }
 
+.header {
+  z-index: 3;
+}
+
 header {
   margin: 0;
   height: 56px;
   padding: 0 16px 0 24px;
-  background-color: #35495E;
+  background-color: #35495e;
   color: #ffffff;
 }
 
@@ -55,7 +58,7 @@ header span {
   position: relative;
   font-size: 20px;
   line-height: 1;
-  letter-spacing: .02em;
+  letter-spacing: 0.02em;
   font-weight: 400;
   box-sizing: border-box;
   padding-top: 16px;
